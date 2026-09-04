@@ -103,6 +103,16 @@ const copy = {
     conflictsMetric: 'Conflicts avoided',
     overreachMetric: 'Overreach blocked',
     earlySendMetric: 'Sent before approval',
+    journeyControls: 'Journey controls',
+    nextStep: 'Next step',
+    planReady:
+      'Plan ready. Review exactly what each provider would receive.',
+    decisionReady:
+      'Your decision. Nothing moves until you approve this fingerprint.',
+    approvalReady:
+      'Approved once. Commit this exact plan to issue demo receipts.',
+    journeyComplete: 'Complete. Approval consumed; four receipts are ready.',
+    completeLabel: 'Complete',
   },
   ar: {
     eyebrow: 'مساحة لتنسيق أحداث الحياة بحدود خصوصية واضحة',
@@ -161,6 +171,13 @@ const copy = {
     conflictsMetric: 'تعارضات تم تجنبها',
     overreachMetric: 'طلب زائد محظور',
     earlySendMetric: 'لم يُرسل قبل الموافقة',
+    journeyControls: 'عناصر التحكم في الرحلة',
+    nextStep: 'الخطوة التالية',
+    planReady: 'الخطة جاهزة. راجع بالضبط ما ستستلمه كل جهة.',
+    decisionReady: 'قرارك الآن. لن يتحرك شيء حتى توافق على هذه البصمة.',
+    approvalReady: 'موافقة لمرة واحدة. نفّذ هذه الخطة نفسها لإصدار الإيصالات التجريبية.',
+    journeyComplete: 'اكتملت الرحلة. استُهلكت الموافقة وأصبحت أربعة إيصالات جاهزة.',
+    completeLabel: 'مكتمل',
   },
 } as const
 
@@ -338,6 +355,10 @@ function App() {
     count: 0,
   })
   const stateRef = useRef(state)
+  const workspaceRef = useRef<HTMLElement>(null)
+  const disclosureRef = useRef<HTMLDivElement>(null)
+  const receiptsRef = useRef<HTMLDivElement>(null)
+  const previousPhaseRef = useRef<AppState['phase']>('idle')
   const t = copy[locale]
 
   useEffect(() => {
@@ -498,6 +519,30 @@ function App() {
     document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr'
   }, [locale])
 
+  useEffect(() => {
+    const previousPhase = previousPhaseRef.current
+    previousPhaseRef.current = state.phase
+    if (previousPhase === state.phase || state.phase === 'idle') return
+
+    const target =
+      state.phase === 'planned'
+        ? workspaceRef.current
+        : state.phase === 'committed'
+          ? receiptsRef.current ?? workspaceRef.current
+          : disclosureRef.current
+    if (!target || typeof target.scrollIntoView !== 'function') return
+
+    const frame = window.requestAnimationFrame(() => {
+      const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+      target.scrollIntoView({
+        behavior: reduceMotion ? 'auto' : 'smooth',
+        block: state.phase === 'committed' ? 'center' : 'start',
+      })
+    })
+
+    return () => window.cancelAnimationFrame(frame)
+  }, [state.phase])
+
   const proposal = state.proposal
   const blockedFieldCount =
     proposal?.applications.reduce(
@@ -576,40 +621,17 @@ function App() {
               {t.collaboration}
             </p>
 
-            <div className="hero-actions">
-              {state.phase === 'idle' && (
+            {state.phase === 'idle' && (
+              <div className="hero-actions">
                 <button className="primary-action" type="button" onClick={() => buildPlan()}>
                   {t.build}
                   <ArrowRight aria-hidden="true" />
                 </button>
-              )}
-              {state.phase === 'planned' && (
-                <button className="primary-action" type="button" onClick={reviewDisclosures}>
-                  {t.review}
-                  <ScanSearch aria-hidden="true" />
-                </button>
-              )}
-              {state.phase === 'reviewing' && (
-                <>
-                  <button className="primary-action" type="button" onClick={approve}>
-                    {t.approve}
-                    <UserRoundCheck aria-hidden="true" />
-                  </button>
-                  <button className="secondary-action" type="button" onClick={reject}>
-                    {t.reject}
-                  </button>
-                </>
-              )}
-              {state.phase === 'approved' && (
-                <button className="primary-action" type="button" onClick={() => commit()}>
-                  {t.commit}
-                  <FileCheck2 aria-hidden="true" />
-                </button>
-              )}
-              <p className="synthetic-note">
-                <CircleAlert size={15} /> {t.synthetic}
-              </p>
-            </div>
+                <p className="synthetic-note">
+                  <CircleAlert size={15} /> {t.synthetic}
+                </p>
+              </div>
+            )}
           </div>
 
           <div className="capsule-wrap" aria-label={t.capsule}>
@@ -646,7 +668,7 @@ function App() {
         </section>
 
         {state.phase !== 'idle' ? (
-          <section className="workspace" aria-live="polite">
+          <section className="workspace" aria-live="polite" ref={workspaceRef}>
             <div className="workspace-heading">
               <div>
                 <span className="section-kicker">{t.outcomeKicker}</span>
@@ -656,6 +678,67 @@ function App() {
               <div className={`phase-stamp phase-${state.phase}`}>
                 {state.phase === 'committed' ? <BadgeCheck /> : <ShieldCheck />}
                 {phaseNames[state.phase][locale]}
+              </div>
+            </div>
+
+            <div
+              className={`journey-command-bar command-${state.phase}`}
+              role="region"
+              aria-label={t.journeyControls}
+            >
+              <span className="command-index" aria-hidden="true">
+                {state.phase === 'planned'
+                  ? '02'
+                  : state.phase === 'reviewing'
+                    ? '03'
+                    : state.phase === 'approved'
+                      ? '04'
+                      : '✓'}
+              </span>
+              <div className="command-copy">
+                <span>{state.phase === 'committed' ? t.completeLabel : t.nextStep}</span>
+                <strong>
+                  {state.phase === 'planned'
+                    ? t.planReady
+                    : state.phase === 'reviewing'
+                      ? t.decisionReady
+                      : state.phase === 'approved'
+                        ? t.approvalReady
+                        : t.journeyComplete}
+                </strong>
+              </div>
+              <p className="command-disclaimer">
+                <CircleAlert size={15} aria-hidden="true" /> {t.synthetic}
+              </p>
+              <div className="command-actions">
+                {state.phase === 'planned' && (
+                  <button className="primary-action" type="button" onClick={reviewDisclosures}>
+                    {t.review}
+                    <ScanSearch aria-hidden="true" />
+                  </button>
+                )}
+                {state.phase === 'reviewing' && (
+                  <>
+                    <button className="primary-action" type="button" onClick={approve}>
+                      {t.approve}
+                      <UserRoundCheck aria-hidden="true" />
+                    </button>
+                    <button className="secondary-action" type="button" onClick={reject}>
+                      {t.reject}
+                    </button>
+                  </>
+                )}
+                {state.phase === 'approved' && (
+                  <button className="primary-action" type="button" onClick={() => commit()}>
+                    {t.commit}
+                    <FileCheck2 aria-hidden="true" />
+                  </button>
+                )}
+                {state.phase === 'committed' && (
+                  <span className="command-complete">
+                    <BadgeCheck aria-hidden="true" /> {t.completeLabel}
+                  </span>
+                )}
               </div>
             </div>
 
@@ -699,7 +782,7 @@ function App() {
                 </div>
               </div>
 
-              <div className="trust-panel paper-panel">
+              <div className="trust-panel paper-panel" ref={disclosureRef}>
                 <div className="panel-title">
                   <div>
                     <span className="micro-label">{t.privacyLabel}</span>
@@ -779,7 +862,7 @@ function App() {
                   })}
                 </div>
                 {state.receipts.length > 0 && (
-                  <div className="receipt-stack">
+                  <div className="receipt-stack" ref={receiptsRef}>
                     {state.receipts.map((receipt) => (
                       <span key={receipt.id}>
                         <FileCheck2 size={14} /> {receipt.id}

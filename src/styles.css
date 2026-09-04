@@ -41,7 +41,7 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
-.app-shell { min-height: 100vh; overflow: hidden; }
+.app-shell { min-height: 100vh; overflow: clip; }
 
 .topbar {
   width: min(1500px, calc(100% - 56px));
@@ -367,6 +367,49 @@ h1 {
 .phase-stamp svg { width: 18px; }
 .phase-committed { color: #176b47; background: rgba(23, 107, 71, 0.07); }
 
+.journey-command-bar {
+  position: sticky;
+  top: 12px;
+  z-index: 20;
+  margin: 0 0 24px;
+  padding: 15px 17px;
+  display: grid;
+  grid-template-columns: auto minmax(250px, 1fr) minmax(170px, auto) auto;
+  align-items: center;
+  gap: 16px;
+  color: #f7f2e8;
+  background: rgba(23, 35, 31, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 7px 7px 0 var(--signal), 0 18px 45px rgba(23, 35, 31, 0.18);
+  backdrop-filter: blur(14px);
+}
+
+.command-index {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  color: #8ce6bd;
+  font: 520 1.1rem 'Newsreader Variable', serif;
+}
+
+.command-copy { min-width: 0; display: grid; gap: 3px; }
+.command-copy > span { color: #9eb0a7; font-size: 0.58rem; font-weight: 780; letter-spacing: 0.15em; text-transform: uppercase; }
+.command-copy strong { color: #fffaf0; font-size: 0.8rem; line-height: 1.35; }
+.command-disclaimer { margin: 0; display: flex; align-items: center; gap: 7px; color: #b7c3bd; font-size: 0.66rem; line-height: 1.3; }
+.command-disclaimer svg { flex: 0 0 auto; color: #ffd173; }
+.command-actions { display: flex; align-items: center; justify-content: flex-end; gap: 15px; }
+.command-actions .primary-action { min-height: 48px; padding-inline: 19px; color: var(--ink); background: #fffaf0; box-shadow: 4px 4px 0 var(--signal); white-space: nowrap; }
+.command-actions .primary-action:hover { box-shadow: 7px 7px 0 var(--signal); }
+.command-actions .secondary-action { color: #fffaf0; border-color: rgba(255, 250, 240, 0.65); white-space: nowrap; }
+.command-actions .secondary-action:hover { color: #ffab99; border-color: #ffab99; }
+.command-complete { display: inline-flex; align-items: center; gap: 8px; color: #8ce6bd; font-size: 0.72rem; font-weight: 780; letter-spacing: 0.1em; text-transform: uppercase; }
+.command-complete svg { width: 20px; }
+.workspace,
+.trust-panel,
+.receipt-stack { scroll-margin-top: 98px; }
+
 .workspace-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr) minmax(270px, 0.7fr); gap: 14px; align-items: stretch; }
 .paper-panel { padding: 27px; background: var(--paper); border: 1px solid rgba(23, 35, 31, 0.1); }
 .panel-title { display: flex; justify-content: space-between; align-items: start; gap: 18px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
@@ -454,6 +497,8 @@ footer > div:last-child { display: flex; align-items: center; gap: 6px; }
   .workspace-grid { grid-template-columns: 1fr 1fr; }
   .audit-panel { grid-column: 1 / -1; }
   .provider-track { max-width: 900px; }
+  .journey-command-bar { grid-template-columns: auto minmax(220px, 1fr) auto; }
+  .command-disclaimer { display: none; }
 }
 
 @media (max-width: 780px) {
@@ -478,6 +523,9 @@ footer > div:last-child { display: flex; align-items: center; gap: 6px; }
   .workspace-grid { grid-template-columns: 1fr; }
   .audit-panel { grid-column: auto; }
   .workspace-heading { align-items: start; flex-direction: column; }
+  .journey-command-bar { top: 8px; grid-template-columns: auto 1fr; gap: 12px; padding: 14px; }
+  .command-actions { grid-column: 1 / -1; justify-content: stretch; }
+  .command-actions .primary-action { flex: 1; justify-content: space-between; }
   footer { grid-template-columns: 1fr; padding: 26px 0; text-align: center; gap: 12px; }
   footer p { order: 3; }
   footer > div { justify-self: center; }
@@ -504,6 +552,10 @@ footer > div:last-child { display: flex; align-items: center; gap: 6px; }
   .timeline-copy strong { font-size: 0.94rem; }
   .human-gate { grid-template-columns: auto 1fr; }
   .human-gate .gate-state { grid-column: 2; }
+  .journey-command-bar { margin-inline: 1px; box-shadow: 5px 5px 0 var(--signal), 0 14px 35px rgba(23, 35, 31, 0.18); }
+  .command-actions { align-items: stretch; flex-direction: column; }
+  .command-actions .primary-action { width: 100%; }
+  .command-actions .secondary-action { min-height: 38px; align-self: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {

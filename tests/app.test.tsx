@@ -45,11 +45,37 @@ describe('human approval journey', () => {
     expect(screen.getByText('Provider instruction quarantined')).toBeVisible()
     expect(screen.queryByText(/applications committed/i)).not.toBeInTheDocument()
 
+    const journeyControls = screen.getByRole('region', { name: 'Journey controls' })
+    expect(
+      within(journeyControls).getByText(
+        'Plan ready. Review exactly what each provider would receive.',
+      ),
+    ).toBeVisible()
+    expect(
+      within(journeyControls).getByRole('button', { name: /review disclosures/i }),
+    ).toBeVisible()
+    expect(screen.getAllByRole('button', { name: /review disclosures/i })).toHaveLength(1)
+
     await user.click(screen.getByRole('button', { name: /review disclosures/i }))
+    expect(
+      within(journeyControls).getByText(
+        'Your decision. Nothing moves until you approve this fingerprint.',
+      ),
+    ).toBeVisible()
     await user.click(screen.getByRole('button', { name: /approve selected applications/i }))
+    expect(
+      within(journeyControls).getByText(
+        'Approved once. Commit this exact plan to issue demo receipts.',
+      ),
+    ).toBeVisible()
     await user.click(screen.getByRole('button', { name: /commit approved plan/i }))
 
     expect(screen.getByRole('heading', { name: /applications committed/i })).toBeVisible()
+    expect(
+      within(journeyControls).getByText(
+        'Complete. Approval consumed; four receipts are ready.',
+      ),
+    ).toBeVisible()
   })
 
   it('switches between English and Arabic without losing the current plan', async () => {

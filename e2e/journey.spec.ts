@@ -22,6 +22,11 @@ test('complete privacy-bounded assistance journey', async ({ page }, testInfo) =
   await expect(proof.getByText('Services staged')).toBeVisible()
   await expect(proof.getByText('Sent before approval')).toBeVisible()
 
+  const journeyControls = page.getByRole('region', { name: 'Journey controls' })
+  await expect(journeyControls).toBeInViewport()
+  await page.getByText('Government ID · Blocked').scrollIntoViewIfNeeded()
+  await expect(journeyControls).toBeInViewport()
+
   await page.getByRole('button', { name: /review disclosures/i }).click()
   await expect(page.getByText('Government ID · Blocked')).toBeVisible()
 
