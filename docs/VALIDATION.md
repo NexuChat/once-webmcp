@@ -14,7 +14,7 @@ Results:
 
 - ESLint: passed.
 - Unit, domain, UI, metadata, and WebMCP integration tests: **44/44 passed**.
-- Coverage: **93.12% statements**, **86.03% branches**, **95.74% functions**, **96.38% lines**.
+- Coverage: **91.98% statements**, **85.95% branches**, **93.81% functions**, **95.18% lines**.
 - TypeScript production build: passed.
 - Browser journeys: **17/17 passed** across 1440 px desktop, 768 px tablet, and 375 px mobile profiles.
 - Real browser WebMCP registration and execution: passed, including back-to-back constraint update and planning, dynamic tool removal, visible human approval, and single-use commit.
