@@ -1,0 +1,14 @@
+# ONCE
+
+> A WebMCP-native life-event coordination demonstration with purpose-bound disclosure and visible human authority.
+
+ONCE turns one urgent household story into a conflict-free plan across four fictional service providers. The application is synthetic: it contacts no real agency and sends no real application.
+
+The top-level page registers imperative WebMCP tools. An agent can read approved planning constraints, discover the simulated service network, check deterministic eligibility, inspect requested data, stage a plan, and open the disclosure review. The commit tool is unavailable until the person approves the exact visible proposal in the page.
+
+Provider text is marked untrusted and instruction-shaped content is quarantined. Government ID and health notes remain outside the agent-visible planning capsule.
+
+## References
+
+- [Open the demonstration](/)
+- [WebMCP documentation](https://developer.chrome.com/docs/ai/webmcp)

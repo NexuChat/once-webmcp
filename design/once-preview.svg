@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1000" viewBox="0 0 1500 1000" role="img" aria-labelledby="title description">
+  <title id="title">ONCE — Tell Your Story Once</title>
+  <desc id="description">A WebMCP coordination map turns one private story into four staged services while a visible human gate prevents early action.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1c17" />
+      <stop offset="0.62" stop-color="#102a22" />
+      <stop offset="1" stop-color="#17362c" />
+    </linearGradient>
+    <radialGradient id="coralGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ff634c" stop-opacity="0.28" />
+      <stop offset="1" stop-color="#ff634c" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffaf0" />
+      <stop offset="1" stop-color="#eee5d6" />
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="30" stdDeviation="28" flood-color="#020a07" flood-opacity="0.38" />
+    </filter>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#d7cbb8" stroke-opacity="0.2" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1500" height="1000" fill="url(#background)" />
+  <circle cx="1400" cy="90" r="420" fill="url(#coralGlow)" />
+  <path d="M0 0H1500V1000H0Z" fill="none" stroke="#f4eddf" stroke-opacity="0.08" stroke-width="24" />
+
+  <g transform="translate(72 58)">
+    <circle cx="28" cy="28" r="23" fill="none" stroke="#f8f0e2" stroke-width="7" />
+    <circle cx="49" cy="7" r="7" fill="#ff5b42" />
+    <text x="74" y="42" fill="#f8f0e2" font-family="Arial, Helvetica, sans-serif" font-size="39" font-weight="800" letter-spacing="-2">once.</text>
+  </g>
+  <text x="1428" y="86" fill="#b9e5d2" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="3.1" text-anchor="end">WEBMCP • HUMAN AUTHORITY</text>
+  <line x1="72" y1="125" x2="1428" y2="125" stroke="#f8f0e2" stroke-opacity="0.18" />
+
+  <g transform="translate(72 195)">
+    <text x="0" y="0" fill="#7be3bc" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="800" letter-spacing="3.4">A LIFE-EVENT COORDINATOR</text>
+    <text x="0" y="100" fill="#f8f0e2" font-family="Georgia, 'Times New Roman', serif" font-size="100" letter-spacing="-5">Tell your</text>
+    <text x="0" y="201" fill="#f8f0e2" font-family="Georgia, 'Times New Roman', serif" font-size="100" letter-spacing="-5">story <tspan fill="#ff634c" font-style="italic">once.</tspan></text>
+    <text x="2" y="265" fill="#c7d7cf" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="400">One urgent moment becomes one coordinated plan—</text>
+    <text x="2" y="303" fill="#c7d7cf" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="400">without repeated forms or surrendered control.</text>
+  </g>
+
+  <g transform="translate(72 570)">
+    <path d="M0 0H566V170H0Z" fill="#17362d" stroke="#80d7b5" stroke-opacity="0.52" />
+    <rect x="0" y="0" width="7" height="170" fill="#ff634c" />
+    <text x="33" y="37" fill="#80d7b5" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="800" letter-spacing="2.5">01 / PRIVATE INTENT</text>
+    <text x="33" y="79" fill="#fff6e8" font-family="Georgia, 'Times New Roman', serif" font-size="26">“My home is unsafe. We need shelter, food,</text>
+    <text x="33" y="115" fill="#fff6e8" font-family="Georgia, 'Times New Roman', serif" font-size="26">care and accessible transport.”</text>
+    <text x="33" y="149" fill="#90a99e" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="2">ONE INPUT • KEPT LOCAL</text>
+  </g>
+
+  <g transform="translate(72 840)" font-family="Arial, Helvetica, sans-serif">
+    <g>
+      <text x="0" y="0" fill="#ff634c" font-size="34" font-weight="800">01</text>
+      <text x="0" y="27" fill="#a8bcb3" font-size="11" font-weight="800" letter-spacing="2">STORY</text>
+    </g>
+    <line x1="95" y1="-28" x2="95" y2="30" stroke="#f8f0e2" stroke-opacity="0.18" />
+    <g transform="translate(125)">
+      <text x="0" y="0" fill="#f8f0e2" font-size="34" font-weight="800">04</text>
+      <text x="0" y="27" fill="#a8bcb3" font-size="11" font-weight="800" letter-spacing="2">SERVICES</text>
+    </g>
+    <line x1="242" y1="-28" x2="242" y2="30" stroke="#f8f0e2" stroke-opacity="0.18" />
+    <g transform="translate(272)">
+      <text x="0" y="0" fill="#7be3bc" font-size="34" font-weight="800">02</text>
+      <text x="0" y="27" fill="#a8bcb3" font-size="11" font-weight="800" letter-spacing="2">CONFLICTS AVOIDED</text>
+    </g>
+    <line x1="445" y1="-28" x2="445" y2="30" stroke="#f8f0e2" stroke-opacity="0.18" />
+    <g transform="translate(475)">
+      <text x="0" y="0" fill="#ffca62" font-size="34" font-weight="800">00</text>
+      <text x="0" y="27" fill="#a8bcb3" font-size="11" font-weight="800" letter-spacing="2">EARLY ACTIONS</text>
+    </g>
+  </g>
+
+  <g transform="translate(716 170)" filter="url(#shadow)">
+    <rect x="18" y="18" width="712" height="660" fill="#ff5b42" />
+    <rect width="712" height="660" fill="url(#card)" />
+    <rect width="712" height="660" fill="url(#grid)" />
+    <rect x="0.5" y="0.5" width="711" height="659" fill="none" stroke="#0e241d" stroke-opacity="0.34" />
+
+    <text x="38" y="47" fill="#18342b" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="800" letter-spacing="2.8">LIVE COORDINATION MAP</text>
+    <circle cx="655" cy="42" r="6" fill="#2c9f78" />
+    <text x="639" y="47" fill="#567269" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" letter-spacing="1.8" text-anchor="end">STAGED</text>
+    <line x1="38" y1="70" x2="674" y2="70" stroke="#16362c" stroke-opacity="0.2" />
+
+    <g transform="translate(38 121)">
+      <rect width="132" height="118" fill="#16362c" />
+      <text x="17" y="25" fill="#83d9b7" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="800" letter-spacing="1.8">ONE STORY</text>
+      <text x="17" y="62" fill="#fff8ea" font-family="Georgia, 'Times New Roman', serif" font-size="23">Private</text>
+      <text x="17" y="89" fill="#fff8ea" font-family="Georgia, 'Times New Roman', serif" font-size="23">intent</text>
+      <circle cx="113" cy="100" r="5" fill="#ff634c" />
+    </g>
+
+    <path d="M170 180H224" fill="none" stroke="#2f6e5b" stroke-width="2" />
+    <path d="M214 171L224 180L214 189" fill="none" stroke="#2f6e5b" stroke-width="2" />
+
+    <g transform="translate(298 180)">
+      <circle r="83" fill="#f7efe0" stroke="#17382d" stroke-width="2" />
+      <circle r="66" fill="none" stroke="#2d8e6c" stroke-width="1.5" stroke-dasharray="3 8" />
+      <circle r="47" fill="#143128" />
+      <circle cx="35" cy="-34" r="8" fill="#ff634c" />
+      <text y="-3" fill="#8ae0bd" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" letter-spacing="2.2" text-anchor="middle">WEBMCP</text>
+      <text y="22" fill="#fff7e9" font-family="Georgia, 'Times New Roman', serif" font-size="19" text-anchor="middle">agent</text>
+      <text y="112" fill="#3e5a51" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="800" letter-spacing="1.5" text-anchor="middle">7 TOOLS DISCOVERED</text>
+    </g>
+
+    <g fill="none" stroke="#2f6e5b" stroke-width="1.5">
+      <path d="M381 158C414 158 422 127 450 127" />
+      <path d="M381 174C414 174 422 213 450 213" />
+      <path d="M381 190C414 190 422 299 450 299" />
+      <path d="M365 235C400 267 418 385 450 385" />
+    </g>
+
+    <g transform="translate(450 91)" font-family="Arial, Helvetica, sans-serif">
+      <g>
+        <rect width="224" height="72" fill="#fffaf0" stroke="#1c4839" stroke-opacity="0.35" />
+        <circle cx="22" cy="22" r="7" fill="#33a87e" />
+        <text x="40" y="27" fill="#143128" font-size="18" font-weight="800">Shelter</text>
+        <text x="40" y="50" fill="#688078" font-size="11" font-weight="700" letter-spacing="1.2">ELIGIBLE • MON 18:00</text>
+      </g>
+      <g transform="translate(0 86)">
+        <rect width="224" height="72" fill="#fffaf0" stroke="#1c4839" stroke-opacity="0.35" />
+        <circle cx="22" cy="22" r="7" fill="#33a87e" />
+        <text x="40" y="27" fill="#143128" font-size="18" font-weight="800">Food</text>
+        <text x="40" y="50" fill="#688078" font-size="11" font-weight="700" letter-spacing="1.2">ELIGIBLE • TUE 10:00</text>
+      </g>
+      <g transform="translate(0 172)">
+        <rect width="224" height="72" fill="#fffaf0" stroke="#1c4839" stroke-opacity="0.35" />
+        <circle cx="22" cy="22" r="7" fill="#33a87e" />
+        <text x="40" y="27" fill="#143128" font-size="18" font-weight="800">Care</text>
+        <text x="40" y="50" fill="#688078" font-size="11" font-weight="700" letter-spacing="1.2">ELIGIBLE • TUE 14:00</text>
+      </g>
+      <g transform="translate(0 258)">
+        <rect width="224" height="72" fill="#fffaf0" stroke="#1c4839" stroke-opacity="0.35" />
+        <circle cx="22" cy="22" r="7" fill="#33a87e" />
+        <text x="40" y="27" fill="#143128" font-size="18" font-weight="800">Mobility</text>
+        <text x="40" y="50" fill="#688078" font-size="11" font-weight="700" letter-spacing="1.2">STEP-FREE • RESERVED</text>
+      </g>
+    </g>
+
+    <g transform="translate(38 473)" font-family="Arial, Helvetica, sans-serif">
+      <rect width="636" height="54" fill="#ffe5d8" stroke="#ff634c" stroke-opacity="0.7" />
+      <circle cx="24" cy="27" r="9" fill="#ff634c" />
+      <path d="M20 23L28 31M28 23L20 31" stroke="#fff8ea" stroke-width="2" />
+      <text x="45" y="22" fill="#a03625" font-size="11" font-weight="800" letter-spacing="1.6">DATA OVERREACH BLOCKED</text>
+      <text x="45" y="40" fill="#5d554d" font-size="12">Unjustified Government ID request never reaches the plan.</text>
+    </g>
+
+    <g transform="translate(38 547)" font-family="Arial, Helvetica, sans-serif">
+      <rect width="636" height="76" fill="#143128" />
+      <text x="22" y="26" fill="#7be3bc" font-size="10" font-weight="800" letter-spacing="2">HUMAN GATE</text>
+      <text x="22" y="56" fill="#fff7e9" font-family="Georgia, 'Times New Roman', serif" font-size="23">You decide what leaves.</text>
+      <rect x="468" y="16" width="148" height="44" fill="#ff634c" />
+      <text x="542" y="43" fill="#10271f" font-size="11" font-weight="900" letter-spacing="1.4" text-anchor="middle">APPROVE PLAN</text>
+    </g>
+  </g>
+
+  <text x="1428" y="928" fill="#83d9b7" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="800" letter-spacing="2.8" text-anchor="end">AGENTS PREPARE • HUMANS APPROVE</text>
+  <text x="1428" y="958" fill="#789188" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" letter-spacing="2.2" text-anchor="end">PURPOSE-BOUND • VISIBLE • REVERSIBLE</text>
+</svg>
